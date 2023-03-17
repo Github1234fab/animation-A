@@ -28,13 +28,11 @@ for (let i = 0; i < 100; i++) {
 // creation des sapins
 for (let i = 0; i < 30; i++) {
   const firs = document.createElement("i");
- firs.classList.add("fa-sharp", "fa-solid", "fa-tree" ,"fir");
+  firs.classList.add("fa-sharp", "fa-solid", "fa-tree", "fir");
   firs.style.left = i * 40 + "px";
   firs.style.top = "-15px";
   document.querySelector(".road").appendChild(firs);
 }
-
-
 
 // fonction pause pour l'attribuer à chaque animation
 const pause = (animation, duration) => {
@@ -54,10 +52,11 @@ const aniSnow = gsap.to(".snowflake", {
 pause(aniSnow, 15);
 
 const aniSnowA = gsap.to(".snowflakeA", {
-  duration: 15,
+  duration: 20,
   ease: "sine",
   y: "+=500px",
   repeat: -1,
+  delay: 1,
 });
 pause(aniSnowA, 15);
 
@@ -67,8 +66,24 @@ const aniSnowB = gsap.to(".snowflakeB", {
   delay: 1,
   y: "+=500px",
   repeat: -1,
+  delay: 1.4,
 });
 pause(aniSnowB, 15);
+
+setTimeout(() => {
+  aniSnow.pause();
+  aniSnowA.pause();
+  aniSnowB.pause();
+  gsap.set(".snowflake", {
+    opacity: 0,
+  });
+  gsap.set(".snowflakeA", {
+    opacity: 0,
+  });
+  gsap.set(".snowflakeB", {
+    opacity: 0,
+  });
+}, 15000);
 
 // animation montagne
 
@@ -92,7 +107,7 @@ gsap.to(".panorama_A", {
   delay: 3,
 });
 
-// creation timelines  
+// creation timelines
 const tmCar = gsap.timeline();
 const tmPlane = gsap.timeline();
 const tmMoon = gsap.timeline();
@@ -115,9 +130,8 @@ tmheadlights.to(".headlights", {
 });
 setTimeout(function () {
   tmheadlights.pause();
-    gsap.set(".headlights", { opacity: 0 });
+  gsap.set(".headlights", { opacity: 0 });
 }, 15000);
-
 
 // animation avion
 tmPlane
@@ -137,42 +151,50 @@ tmPlane
       duration: 3,
     })
   )
-  // .add(
-  //   gsap.to(".plane", {
-  //     x: 450,
-  //     y: -100,
-  //     duration: 5,
-  //     transform: "rotate(-60deg)",
-  //     ease: "none",
-  //   })
-  // )
+
   .add(
     gsap.to(".plane", {
       x: 800,
       y: -500,
-      duration: 10,
+      duration: 17,
       transform: "rotate(-30deg)",
       ease: "none",
+      scale: 0.2,
     })
-);
-  
-tmSun.add(
-  gsap.to(".sun", {
-    x: 800,
-    y: -500,
-    duration: 120,
-    ease: "sine",
-    delay: 4,
-  })
-);
-  
+  );
+
+tmSun
+  .add(
+    gsap.to(".sun", {
+      x: 400,
+      y: -400,
+      duration: 20,
+      delay: 3,
+      scale: 0.7,
+    })
+  )
+  .add(
+    gsap.to(".sun", {
+      x: 700,
+      y: -400,
+      duration: 9,
+    })
+  )
+  .add(
+    gsap.to(".sun", {
+      x: 1100,
+      y: 200,
+      duration: 20,
+    })
+  );
+
 tmMoon.add(
   gsap.to(".moon", {
-    x: 1200,
+    x: 850,
     y: 500,
-    duration: 170,
+    duration: 80,
     ease: "sine",
     delay: 3,
+    scale: 0.1,
   })
 );
-  
