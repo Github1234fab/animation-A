@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.panorama_A {
+  width: 800px;
+  height: 500px;
+  background: linear-gradient(rgb(4, 26, 98), rgb(119, 119, 249));
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px grey;
+}
+
+.fir {
+  height: 30px;
+  width: 30px;
+  color: #3a725f;
+  position: absolute;
+  top: 420px;
+  left: 338px;
+  transform: rotate(-60deg);
+}
+
+.mountain {
+  width: 0px;
+  height: 0px;
+  /* border-bottom: 100px solid; */
+  /* background-image: linear-gradient((#4b4833 20%, #927420)); */
+  border-top: 100px solid transparent;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+}
+
+.Amountain {
+  position: absolute;
+  top: 200px;
+  left: 320px;
+  border-bottom: 200px solid rgb(1, 6, 32);
+  opacity: 1;
+}
+.Bmountain {
+  position: absolute;
+  top: 120px;
+  left: 480px;
+  border-bottom: 280px solid rgb(1, 6, 32);
+  opacity: 1;
+}
+.Cmountain {
+  position: absolute;
+  top: 20px;
+  left: 610px;
+  border-bottom: 380px solid rgb(1, 6, 32);
+  opacity: 1;
+}
+
+.snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.snowflakes div {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.snowflake {
+  opacity: 0.4;
+}
+
+.snowflakeA {
+  opacity: 0.7;
+}
+
+.snowflakeB {
+  opacity: 1;
+}
+
+.car {
+  position: absolute;
+  top: 480px;
+  z-index: 999;
+}
+
+.road {
+  height: 10px;
+  width: 100%;
+  background-color: rgb(44, 11, 11);
+  position: absolute;
+  top: 495px;
+  pointer-events: none;
+}
+
+.road div {
+  height: 7px;
+  width: 4px;
+  background-color: rgb(134, 43, 43);
+  position: absolute;
+  pointer-events: none;
+}
