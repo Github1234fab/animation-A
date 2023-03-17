@@ -90,6 +90,7 @@
   position: absolute;
   top: 480px;
   z-index: 999;
+  color: rgb(3, 41, 3);
 }
 
 .road {
@@ -107,4 +108,9 @@
   background-color: rgb(134, 43, 43);
   position: absolute;
   pointer-events: none;
+}
+
+.plane{
+  color: rgb(210, 50, 50);
+
 }

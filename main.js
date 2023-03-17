@@ -30,31 +30,44 @@ for (let i = 0; i < 30; i++) {
 
 const tm = gsap.timeline();
 
-gsap.to(".snowflake", {
-  duration: 10,
+const pause = (animation, duration) => {
+  setTimeout(() => {
+    animation.pause();
+  }, duration * 1000);
+}
+
+const aniSnow = gsap.to(".snowflake", {
+  duration: 15,
   ease: "sine",
   y: "+=500px",
   repeat: -1,
 });
 
-gsap.to(".snowflakeA", {
-  duration: 10,
+pause(aniSnow, 15);
+
+const aniSnowA = gsap.to(".snowflakeA", {
+  duration: 15,
   ease: "sine",
   y: "+=500px",
   repeat: -1,
 });
+pause(aniSnowA, 15);
 
-gsap.to(".snowflakeB", {
-  duration: 10,
+const aniSnowB= gsap.to(".snowflakeB", {
+  duration: 15,
   ease: "sine",
   delay: 1,
   y: "+=500px",
   repeat: -1,
 });
+pause(aniSnowB, 15);
+
+
+
 
 gsap.to(".mountain", {
   scale: 2,
-  duration: 30,
+  duration: 20,
   yoyo: true,
   repeat: -1,
   borderBottomColor: "orange",
@@ -64,7 +77,7 @@ gsap.to(".mountain", {
 
 gsap.to(".panorama_A", {
   backgroundImage: "linear-gradient(to right, #ff7f50, #ffd700)",
-  duration: 30,
+  duration: 20,
   ease: "sine",
   repeat: -1,
   yoyo: true,
