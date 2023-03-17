@@ -123,35 +123,35 @@ setTimeout(function () {
 tmPlane
   .add(
     gsap.to(".plane", {
-      x: 380,
-      duration: 5,
+      x: 340,
+      duration: 10,
       ease: "none",
     })
   )
   .add(
     gsap.to(".plane", {
       x: 400,
-      y: -50,
-      duration: 2,
+      y: -80,
       transform: "rotate(-60deg)",
       ease: "none",
+      duration: 3,
     })
   )
+  // .add(
+  //   gsap.to(".plane", {
+  //     x: 450,
+  //     y: -100,
+  //     duration: 5,
+  //     transform: "rotate(-60deg)",
+  //     ease: "none",
+  //   })
+  // )
   .add(
     gsap.to(".plane", {
-      x: 500,
-      y: -200,
-      duration: 2,
-      transform: "rotate(-60deg)",
-      ease: "none",
-    })
-  )
-  .add(
-    gsap.to(".plane", {
-      x: 700,
-      y: -300,
-      duration: 20,
-      transform: "rotate(-40deg)",
+      x: 800,
+      y: -500,
+      duration: 10,
+      transform: "rotate(-30deg)",
       ease: "none",
     })
 );
