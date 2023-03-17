@@ -1,41 +1,49 @@
+// creation des flocons de neige. 3 groupes de flocons pour jouer sur l'opacité. snowflake, snowflakeA, snowllakeB
 for (let i = 0; i < 100; i++) {
   var snowflake = document.createElement("div");
   var snowflakeA = document.createElement("div");
   var snowflakeB = document.createElement("div");
 
+  // ajout de la classe
   snowflake.classList.add("snowflake");
   snowflakeA.classList.add("snowflakeA");
   snowflakeB.classList.add("snowflakeB");
 
+  // ajout d'un placement aléatoire left sur le window.innerWidth
   snowflake.style.left = Math.random() * window.innerWidth + "px";
   snowflakeA.style.left = Math.random() * window.innerWidth + "px";
   snowflakeB.style.left = Math.random() * window.innerWidth + "px";
 
+  // ajout d'un placement aléatoire top sur le window.innerHeight
   snowflake.style.top = Math.random() * window.innerHeight + "px";
   snowflakeA.style.top = Math.random() * window.innerHeight + "px";
   snowflakeB.style.top = Math.random() * window.innerHeight + "px";
 
+  // attribution de l'enfant au parent
   document.querySelector(".snowflakes").appendChild(snowflake);
   document.querySelector(".snowflakes").appendChild(snowflakeA);
   document.querySelector(".snowflakes").appendChild(snowflakeB);
 }
 
+// creation des sapins
 for (let i = 0; i < 30; i++) {
-  const barricades = document.createElement("div");
-  barricades.classList.add("barricades");
-  barricades.style.left = i * 40 + "px";
-  barricades.style.top = "-7px";
-  document.querySelector(".road").appendChild(barricades);
+  const firs = document.createElement("i");
+ firs.classList.add("fa-sharp", "fa-solid", "fa-tree" ,"fir");
+  firs.style.left = i * 40 + "px";
+  firs.style.top = "-15px";
+  document.querySelector(".road").appendChild(firs);
 }
 
-const tm = gsap.timeline();
 
+
+// fonction pause pour l'attribuer à chaque animation
 const pause = (animation, duration) => {
   setTimeout(() => {
     animation.pause();
   }, duration * 1000);
-}
+};
 
+// animation snow
 const aniSnow = gsap.to(".snowflake", {
   duration: 15,
   ease: "sine",
@@ -53,7 +61,7 @@ const aniSnowA = gsap.to(".snowflakeA", {
 });
 pause(aniSnowA, 15);
 
-const aniSnowB= gsap.to(".snowflakeB", {
+const aniSnowB = gsap.to(".snowflakeB", {
   duration: 15,
   ease: "sine",
   delay: 1,
@@ -62,8 +70,7 @@ const aniSnowB= gsap.to(".snowflakeB", {
 });
 pause(aniSnowB, 15);
 
-
-
+// animation montagne
 
 gsap.to(".mountain", {
   scale: 2,
@@ -75,18 +82,97 @@ gsap.to(".mountain", {
   ease: "sine",
 });
 
+// animation ciel
 gsap.to(".panorama_A", {
-  backgroundImage: "linear-gradient(to right, #ff7f50, #ffd700)",
+  backgroundImage: "linear-gradient(to left, #ff7f50, #ffd700)",
   duration: 20,
-  ease: "sine",
+  ease: "slow",
   repeat: -1,
   yoyo: true,
   delay: 3,
 });
 
-tm.to(".car", {
+// creation timelines  
+const tmCar = gsap.timeline();
+const tmPlane = gsap.timeline();
+const tmMoon = gsap.timeline();
+const tmSun = gsap.timeline();
+const tmheadlights = gsap.timeline();
+
+// animation car
+tmCar.to(".car", {
   x: 800,
   duration: 40,
   repeat: -1,
   ease: "power",
 });
+
+tmheadlights.to(".headlights", {
+  x: 800,
+  duration: 40,
+  repeat: -1,
+  ease: "slow",
+});
+setTimeout(function () {
+  tmheadlights.pause();
+    gsap.set(".headlights", { opacity: 0 });
+}, 15000);
+
+
+// animation avion
+tmPlane
+  .add(
+    gsap.to(".plane", {
+      x: 380,
+      duration: 5,
+      ease: "none",
+    })
+  )
+  .add(
+    gsap.to(".plane", {
+      x: 400,
+      y: -50,
+      duration: 2,
+      transform: "rotate(-60deg)",
+      ease: "none",
+    })
+  )
+  .add(
+    gsap.to(".plane", {
+      x: 500,
+      y: -200,
+      duration: 2,
+      transform: "rotate(-60deg)",
+      ease: "none",
+    })
+  )
+  .add(
+    gsap.to(".plane", {
+      x: 700,
+      y: -300,
+      duration: 20,
+      transform: "rotate(-40deg)",
+      ease: "none",
+    })
+);
+  
+tmSun.add(
+  gsap.to(".sun", {
+    x: 800,
+    y: -500,
+    duration: 120,
+    ease: "sine",
+    delay: 9,
+  })
+);
+  
+tmMoon.add(
+  gsap.to(".moon", {
+    x: 1200,
+    y: -500,
+    duration: 170,
+    ease: "sine",
+    delay: 3,
+  })
+);
+  
