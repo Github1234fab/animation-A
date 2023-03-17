@@ -162,14 +162,14 @@ tmSun.add(
     y: -500,
     duration: 120,
     ease: "sine",
-    delay: 9,
+    delay: 4,
   })
 );
   
 tmMoon.add(
   gsap.to(".moon", {
     x: 1200,
-    y: -500,
+    y: 500,
     duration: 170,
     ease: "sine",
     delay: 3,
