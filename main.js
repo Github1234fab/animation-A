@@ -119,19 +119,19 @@ tmCar.to(".car", {
   x: 800,
   duration: 40,
   repeat: -1,
-  ease: "power",
+  ease: "none",
 });
 
 tmheadlights.to(".headlights", {
   x: 800,
   duration: 40,
   repeat: -1,
-  ease: "slow",
+  ease: "none",
 });
 setTimeout(function () {
   tmheadlights.pause();
   gsap.set(".headlights", { opacity: 0 });
-}, 15000);
+}, 11000);
 
 // animation avion
 tmPlane

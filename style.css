@@ -97,7 +97,7 @@
   filter: blur(5px);
   position: absolute;
   top: 473px;
-  left: 20px;
+  left: 15px;
   transform: rotate(176deg);
   z-index: 1;
 }
