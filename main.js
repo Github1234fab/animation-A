@@ -26,11 +26,11 @@ for (let i = 0; i < 100; i++) {
 }
 
 // creation des sapins
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 20; i++) {
   const firs = document.createElement("i");
-  firs.classList.add("fa-sharp", "fa-solid", "fa-tree", "fir");
-  firs.style.left = i * 40 + "px";
-  firs.style.top = "-15px";
+  firs.classList.add("fa-sharp", "fa-solid", "fa-tree", "fa-2x", "fir");
+  firs.style.left = i * 50 + "px";
+  firs.style.top = "-25px";
   document.querySelector(".road").appendChild(firs);
 }
 
@@ -163,38 +163,24 @@ tmPlane
     })
   );
 
-tmSun
-  .add(
-    gsap.to(".sun", {
-      x: 400,
-      y: -400,
-      duration: 20,
-      delay: 3,
-      scale: 0.7,
-    })
-  )
-  .add(
-    gsap.to(".sun", {
-      x: 700,
-      y: -400,
-      duration: 9,
-    })
-  )
-  .add(
-    gsap.to(".sun", {
-      x: 1100,
-      y: 200,
-      duration: 20,
-    })
-  );
-
-tmMoon.add(
-  gsap.to(".moon", {
-    x: 850,
-    y: 500,
-    duration: 80,
-    ease: "sine",
-    delay: 3,
-    scale: 0.1,
+// animation sun
+tmSun.add(
+  gsap.to(".sunCircle", {
+    rotation: 180,
+    duration: 90,
+    delay: 4.5,
   })
+  // .add(
+  //   gsap.to(".sunCirle", {
+  //     rotation: 90,
+  //     duration: 2,
+  //     scale: 4,
+  //   })
+  // )
 );
+
+//animation moon
+tmMoon.to(".moonCircle", {
+  rotation: 180,
+  duration: 50,
+});
