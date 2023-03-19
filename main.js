@@ -164,11 +164,12 @@ tmPlane
   );
 
 // animation sun
-tmSun.add(
+// tmSun.add(
   gsap.to(".sunCircle", {
     rotation: 180,
     duration: 90,
     delay: 4.5,
+    repeat: -1,
   })
   // .add(
   //   gsap.to(".sunCirle", {
@@ -177,10 +178,11 @@ tmSun.add(
   //     scale: 4,
   //   })
   // )
-);
+
 
 //animation moon
 tmMoon.to(".moonCircle", {
   rotation: 180,
   duration: 50,
+  repeat: -1,
 });
