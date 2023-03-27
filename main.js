@@ -97,8 +97,7 @@ let mountain = gsap.to(".mountain", {
 pause(mountain, 30);
 
 // animation ciel
-let ciel = 
-gsap.to(".panorama_A", {
+let ciel = gsap.to(".panorama_A", {
   backgroundImage: "linear-gradient(to left, #ff7f50, #ffd700)",
   duration: 12,
   // ease: "power",
