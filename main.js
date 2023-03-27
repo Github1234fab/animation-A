@@ -87,7 +87,7 @@ setTimeout(() => {
 
 let mountain = gsap.to(".mountain", {
   scale: 1.5,
-  duration: 11,
+  duration: 14,
   yoyo: true,
   repeat: -1,
   borderBottomColor: "orange",
@@ -123,7 +123,7 @@ let car = tmCar.to(".car", {
   // repeat: -1,
   ease: "",
 });
-tmCar.addPause(10.1);
+tmCar.addPause(7.2);
 setTimeout(function () {
   tmCar.play();
 }, 19000);
@@ -141,7 +141,7 @@ let headLights = tmheadlights.to(".headlights", {
   // repeat: -1,
   ease: "",
 });
-tmheadlights.addPause(10.2, function () {
+tmheadlights.addPause(7.2, function () {
   gsap.set(".headlights", { opacity: 0 });
 });
 setTimeout(function () {
@@ -206,8 +206,8 @@ let moon = tmMoon.to(".moonCircle", {
 });
 pause(moon, 20);
 
-let moto = tmMoto.to(".moto", {
-  x: 800,
-  duration: 19,
-  // repeat: -1,
-});
+// let moto = tmMoto.to(".moto", {
+//   x: 800,
+//   duration: 19,
+//   // repeat: -1,
+// });
