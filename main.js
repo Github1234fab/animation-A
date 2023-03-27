@@ -43,30 +43,28 @@ const pause = (animation, duration) => {
 
 // animation snow
 const aniSnow = gsap.to(".snowflake", {
-  duration: 15,
+  duration: 8,
   ease: "sine",
   y: "+=500px",
-  repeat: -1,
+  // repeat: -1,
 });
 
-pause(aniSnow, 15);
+pause(aniSnow, 10);
 
 const aniSnowA = gsap.to(".snowflakeA", {
-  duration: 20,
+  duration: 8,
   ease: "sine",
   y: "+=500px",
-  repeat: -1,
-  delay: 1,
+  // repeat: -1,
 });
 pause(aniSnowA, 15);
 
 const aniSnowB = gsap.to(".snowflakeB", {
-  duration: 15,
+  duration: 8,
   ease: "sine",
   delay: 1,
   y: "+=500px",
-  repeat: -1,
-  delay: 1.4,
+  // repeat: -1,
 });
 pause(aniSnowB, 15);
 
@@ -87,25 +85,28 @@ setTimeout(() => {
 
 // animation montagne
 
-gsap.to(".mountain", {
-  scale: 2,
-  duration: 20,
+let mountain = gsap.to(".mountain", {
+  scale: 1.5,
+  duration: 11,
   yoyo: true,
   repeat: -1,
   borderBottomColor: "orange",
-  delay: 3,
   ease: "sine",
+  delay: 3,
 });
+pause(".mountain", 10);
 
 // animation ciel
+let ciel = 
 gsap.to(".panorama_A", {
   backgroundImage: "linear-gradient(to left, #ff7f50, #ffd700)",
-  duration: 20,
-  ease: "slow",
+  duration: 12,
+  // ease: "power",
   repeat: -1,
   yoyo: true,
   delay: 3,
 });
+pause(ciel, 27);
 
 // creation timelines
 const tmCar = gsap.timeline();
@@ -115,26 +116,41 @@ const tmSun = gsap.timeline();
 const tmheadlights = gsap.timeline();
 
 // animation car
-tmCar.to(".car", {
+let car = tmCar.to(".car", {
   x: 800,
-  duration: 40,
-  repeat: -1,
+  duration: 17,
+  // repeat: -1,
   ease: "none",
 });
+tmCar.addPause(10.1);
+setTimeout(function () {
+  tmCar.play();
+}, 17000);
+pause(car, 20);
 
-tmheadlights.to(".headlights", {
+// animation des phares
+const headlightsDuration = 17;
+function turnOnHeadlights() {
+  gsap.set(".headlights", { opacity: 1 });
+}
+
+let headLights = tmheadlights.to(".headlights", {
   x: 800,
-  duration: 40,
-  repeat: -1,
+  duration: 17,
+  // repeat: -1,
   ease: "none",
+});
+tmheadlights.addPause(10.2, function () {
+  gsap.set(".headlights", { opacity: 0 });
 });
 setTimeout(function () {
-  tmheadlights.pause();
-  gsap.set(".headlights", { opacity: 0 });
-}, 11000);
+  tmheadlights.play();
+  gsap.set(".headlights", { opacity: 1 });
+}, 17000);
+pause(headLights, 20);
 
 // animation avion
-tmPlane
+let plane = tmPlane
   .add(
     gsap.to(".plane", {
       x: 340,
@@ -162,27 +178,22 @@ tmPlane
       scale: 0.2,
     })
   );
+pause(plane, 20);
 
 // animation sun
 // tmSun.add(
-  gsap.to(".sunCircle", {
-    rotation: 180,
-    duration: 90,
-    delay: 4.5,
-    repeat: -1,
-  })
-  // .add(
-  //   gsap.to(".sunCirle", {
-  //     rotation: 90,
-  //     duration: 2,
-  //     scale: 4,
-  //   })
-  // )
-
-
-//animation moon
-tmMoon.to(".moonCircle", {
+let sun = gsap.to(".sunCircle", {
   rotation: 180,
-  duration: 50,
+  duration: 39,
+  delay: 2.8,
   repeat: -1,
 });
+pause(sun, 20);
+
+//animation moon
+let moon = tmMoon.to(".moonCircle", {
+  rotation: 180,
+  duration: 24,
+  repeat: -1,
+});
+pause(moon, 20);
