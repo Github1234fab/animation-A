@@ -26,10 +26,10 @@ for (let i = 0; i < 100; i++) {
 }
 
 // creation des sapins
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 16; i++) {
   const firs = document.createElement("i");
   firs.classList.add("fa-sharp", "fa-solid", "fa-tree", "fa-2x", "fir");
-  firs.style.left = i * 50 + "px";
+  firs.style.left = i * 75 + "px";
   firs.style.top = "-25px";
   document.querySelector(".road").appendChild(firs);
 }
@@ -94,7 +94,7 @@ let mountain = gsap.to(".mountain", {
   ease: "sine",
   delay: 3,
 });
-pause(".mountain", 10);
+pause(mountain, 30);
 
 // animation ciel
 let ciel = 
@@ -106,7 +106,7 @@ gsap.to(".panorama_A", {
   yoyo: true,
   delay: 3,
 });
-pause(ciel, 27);
+pause(ciel, 25);
 
 // creation timelines
 const tmCar = gsap.timeline();
@@ -118,15 +118,15 @@ const tmheadlights = gsap.timeline();
 // animation car
 let car = tmCar.to(".car", {
   x: 800,
-  duration: 17,
+  duration: 19,
   // repeat: -1,
   ease: "none",
 });
 tmCar.addPause(10.1);
 setTimeout(function () {
   tmCar.play();
-}, 17000);
-pause(car, 20);
+}, 19000);
+pause(car, 30);
 
 // animation des phares
 const headlightsDuration = 17;
@@ -136,7 +136,7 @@ function turnOnHeadlights() {
 
 let headLights = tmheadlights.to(".headlights", {
   x: 800,
-  duration: 17,
+  duration: 19,
   // repeat: -1,
   ease: "none",
 });
@@ -146,8 +146,8 @@ tmheadlights.addPause(10.2, function () {
 setTimeout(function () {
   tmheadlights.play();
   gsap.set(".headlights", { opacity: 1 });
-}, 17000);
-pause(headLights, 20);
+}, 19000);
+pause(headLights, 30);
 
 // animation avion
 let plane = tmPlane
@@ -178,17 +178,17 @@ let plane = tmPlane
       scale: 0.2,
     })
   );
-pause(plane, 20);
+pause(plane, 30);
 
 // animation sun
 // tmSun.add(
 let sun = gsap.to(".sunCircle", {
   rotation: 180,
-  duration: 39,
+  duration: 36,
   delay: 2.8,
   repeat: -1,
 });
-pause(sun, 20);
+pause(sun, 30);
 
 //animation moon
 let moon = tmMoon.to(".moonCircle", {
