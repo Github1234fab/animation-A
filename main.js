@@ -113,13 +113,15 @@ const tmPlane = gsap.timeline();
 const tmMoon = gsap.timeline();
 const tmSun = gsap.timeline();
 const tmheadlights = gsap.timeline();
+const tmTractor = gsap.timeline();
+const tmMoto = gsap.timeline();
 
 // animation car
 let car = tmCar.to(".car", {
   x: 800,
   duration: 19,
   // repeat: -1,
-  ease: "none",
+  ease: "",
 });
 tmCar.addPause(10.1);
 setTimeout(function () {
@@ -137,7 +139,7 @@ let headLights = tmheadlights.to(".headlights", {
   x: 800,
   duration: 19,
   // repeat: -1,
-  ease: "none",
+  ease: "",
 });
 tmheadlights.addPause(10.2, function () {
   gsap.set(".headlights", { opacity: 0 });
@@ -147,6 +149,13 @@ setTimeout(function () {
   gsap.set(".headlights", { opacity: 1 });
 }, 19000);
 pause(headLights, 30);
+
+let tractor = tmTractor.to(".tractor", {
+  x: -900,
+  duration: 19,
+  // repeat: -1,
+  ease: "none",
+});
 
 // animation avion
 let plane = tmPlane
@@ -196,3 +205,9 @@ let moon = tmMoon.to(".moonCircle", {
   repeat: -1,
 });
 pause(moon, 20);
+
+let moto = tmMoto.to(".moto", {
+  x: 800,
+  duration: 19,
+  // repeat: -1,
+});

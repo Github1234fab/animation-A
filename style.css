@@ -168,3 +168,20 @@
   border-radius: 50%;
   background: linear-gradient(#f5f3ce, #e6e3b8);
 }
+
+.tractor{
+  position: absolute;
+  top: 470px;
+  right: 0px;
+  left: 100%;
+  color: rgb(3, 36, 3);
+  z-index: 1;
+}
+
+.moto{
+  position: absolute;
+  top: 480px;
+  color: rgb(3, 41, 3);
+  z-index: 1;
+}
+
