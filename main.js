@@ -16,7 +16,7 @@ for (let i = 0; i < 100; i++) {
   snowflakeA.style.left = Math.random() * window.innerWidth + "px";
   snowflakeB.style.left = Math.random() * window.innerWidth + "px";
 
-  // ajout d'un placement aléatoire top sur le window.innerHeight 
+  // ajout d'un placement aléatoire top sur le window.innerHeight
 
   snowflake.style.top = Math.random() * window.innerHeight + "px";
   snowflakeA.style.top = Math.random() * window.innerHeight + "px";
@@ -69,7 +69,7 @@ const pause = (animation, duration) => {
 
 const aniSnow = gsap.to(".snowflake", {
   duration: 5,
-  ease: "sine",
+  ease: "slow",
   y: "+=500px",
   // repeat: -1,
 });
@@ -78,7 +78,7 @@ pause(aniSnow, 10);
 
 const aniSnowA = gsap.to(".snowflakeA", {
   duration: 5,
-  ease: "sine",
+  ease: "slow",
   y: "+=500px",
   // repeat: -1,
 });
@@ -86,7 +86,7 @@ pause(aniSnowA, 15);
 
 const aniSnowB = gsap.to(".snowflakeB", {
   duration: 5,
-  ease: "sine",
+  ease: "slow",
   delay: 1,
   y: "+=500px",
   // repeat: -1,
@@ -153,18 +153,14 @@ let car = tmCar.to(".car", {
   // repeat: -1,
   ease: "",
 });
-tmCar.addPause(6.7);
+tmCar.addPause(10.7);
 setTimeout(function () {
   tmCar.play();
-}, 12000);
-pause(car, 30);
+}, 20000);
+
+pause(car, 33);
 
 // animation des phares.................................................
-
-// const headlightsDuration = 17;
-// function turnOnHeadlights() {
-//   gsap.set(".headlights", { opacity: 1 });
-// }
 
 let headLights = tmheadlights.to(".headlights", {
   x: 800,
@@ -172,20 +168,18 @@ let headLights = tmheadlights.to(".headlights", {
   // repeat: -1,
   ease: "",
 });
-tmheadlights.addPause(6.7, function () {
+tmheadlights.addPause(10.7, function () {
   gsap.set(".headlights", { opacity: 0 });
 });
 
 setTimeout(function () {
   tmheadlights.play();
-   gsap.set(".headlights", { x: 900 });
+  //  gsap.set(".headlights", { scale: 4 });
   gsap.set(".headlights", { opacity: 1 });
- 
-}, 23000);
+  gsap.set(".headlights", { ease: "power4" });
+}, 20000);
 
 pause(headLights, 30);
-
-
 
 //animation headligths_tractor.....................................................
 
@@ -195,10 +189,9 @@ let headLightsTractor = tmheadlightsTractor.to(".headlights_tractor", {
   // repeat: -1,
   ease: "none",
 });
-tmheadlightsTractor.addPause(5.7, function () {
+tmheadlightsTractor.addPause(6.7, function () {
   gsap.set(".headlights_tractor", { opacity: 0 });
 });
-
 
 //animation tractor................
 
@@ -209,7 +202,6 @@ let tractor = tmTractor.to(".tractor", {
   ease: "none",
 });
 
-
 //animation ballLight_tractor.................
 
 let ballLight_tractor = tmballLightTractor.to(".ballLight_tractor", {
@@ -218,7 +210,7 @@ let ballLight_tractor = tmballLightTractor.to(".ballLight_tractor", {
   // repeat: -1,
   ease: "none",
 });
-tmballLightTractor.addPause(5.7, function () {
+tmballLightTractor.addPause(6.7, function () {
   gsap.set(".ballLight_tractor", { opacity: 0 });
 });
 
@@ -248,7 +240,7 @@ let plane = tmPlane
       y: -500,
       duration: 17,
       transform: "rotate(-30deg)",
-      ease: "none",
+      ease: "power3",
       scale: 0.2,
     })
   );

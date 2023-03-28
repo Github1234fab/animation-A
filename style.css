@@ -96,9 +96,10 @@
   filter: blur(5px);
   position: absolute;
   top: 486px;
-  left: 17px;
+  left: 22px;
   transform: rotate(176deg);
   z-index: 1;
+  scale: 1.7;
 }
 
 
@@ -128,6 +129,7 @@
   top: 350px;
   left: -50px;
   color: rgb(64, 64, 68);
+  z-index: 9999;
 }
 
 .sunCircle {
@@ -178,19 +180,13 @@
   color: rgb(173, 194, 243);
   filter: blur(4px);
   position: absolute;
-  top: 482px;
-  right: 0px;
+  top: 490px;
+  right: 2px;
+  rotate: -30(deg);
   /* left: 100%; */
-  transform: rotate(360deg);
+  transform: rotate(340deg);
   z-index: 9999;
-}
-
-.clouds{
-  position: absolute;
-  top: 100px;
-  left: 10px;
-  z-index: 9999;
-  color: rgb(183, 179, 179);
+  scale: 1.8;
 }
 
 .ballLight_tractor{
@@ -200,7 +196,16 @@
   background-color: yellow;
   filter: blur(4px);
   position: absolute;
-  top: 458px;
-  right: -30px;
+  top: 460px;
+  right: -32px;
   z-index: 9999;
+  scale: 1.4;
+}
+
+.clouds{
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  z-index: 9999;
+  color: rgb(183, 179, 179);
 }
