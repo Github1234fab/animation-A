@@ -1,4 +1,5 @@
 // creation des flocons de neige. 3 groupes de flocons pour jouer sur l'opacité. snowflake, snowflakeA, snowllakeB
+
 for (let i = 0; i < 100; i++) {
   var snowflake = document.createElement("div");
   var snowflakeA = document.createElement("div");
@@ -10,16 +11,19 @@ for (let i = 0; i < 100; i++) {
   snowflakeB.classList.add("snowflakeB");
 
   // ajout d'un placement aléatoire left sur le window.innerWidth
+
   snowflake.style.left = Math.random() * window.innerWidth + "px";
   snowflakeA.style.left = Math.random() * window.innerWidth + "px";
   snowflakeB.style.left = Math.random() * window.innerWidth + "px";
 
-  // ajout d'un placement aléatoire top sur le window.innerHeight
+  // ajout d'un placement aléatoire top sur le window.innerHeight 
+
   snowflake.style.top = Math.random() * window.innerHeight + "px";
   snowflakeA.style.top = Math.random() * window.innerHeight + "px";
   snowflakeB.style.top = Math.random() * window.innerHeight + "px";
 
-  // attribution de l'enfant au parent
+  // attribution de l'enfant au parent........................................................
+
   document.querySelector(".snowflakes").appendChild(snowflake);
   document.querySelector(".snowflakes").appendChild(snowflakeA);
   document.querySelector(".snowflakes").appendChild(snowflakeB);
@@ -34,16 +38,37 @@ for (let i = 0; i < 16; i++) {
   document.querySelector(".road").appendChild(firs);
 }
 
-// fonction pause pour l'attribuer à chaque animation
+//création des nuages....................................................................
+
+for (let i = 0; i < 3; i++) {
+  const cloud = document.createElement("i");
+  cloud.classList.add("fa-solid", "fa-cloud", "clouds");
+  cloud.style.left = i * Math.floor(Math.random() * 100) + "px";
+  cloud.style.top = Math.floor(Math.random() * 3) + "40px";
+  cloud.style.transform = "scale(4 )";
+
+  document.querySelector(".panorama_A").appendChild(cloud);
+}
+
+//animation CLouds..................................
+
+const clouds = gsap.to(".clouds", {
+  duration: 50,
+  x: 900,
+});
+
+// fonction pause pour l'attribuer à chaque animation............
+
 const pause = (animation, duration) => {
   setTimeout(() => {
     animation.pause();
   }, duration * 1000);
 };
 
-// animation snow
+// animation snow.................................................
+
 const aniSnow = gsap.to(".snowflake", {
-  duration: 8,
+  duration: 5,
   ease: "sine",
   y: "+=500px",
   // repeat: -1,
@@ -52,7 +77,7 @@ const aniSnow = gsap.to(".snowflake", {
 pause(aniSnow, 10);
 
 const aniSnowA = gsap.to(".snowflakeA", {
-  duration: 8,
+  duration: 5,
   ease: "sine",
   y: "+=500px",
   // repeat: -1,
@@ -60,7 +85,7 @@ const aniSnowA = gsap.to(".snowflakeA", {
 pause(aniSnowA, 15);
 
 const aniSnowB = gsap.to(".snowflakeB", {
-  duration: 8,
+  duration: 5,
   ease: "sine",
   delay: 1,
   y: "+=500px",
@@ -83,7 +108,7 @@ setTimeout(() => {
   });
 }, 15000);
 
-// animation montagne
+// animation montagne...............................................................................................
 
 let mountain = gsap.to(".mountain", {
   scale: 1.5,
@@ -96,7 +121,8 @@ let mountain = gsap.to(".mountain", {
 });
 pause(mountain, 30);
 
-// animation ciel
+// animation ciel.............................................................................
+
 let ciel = gsap.to(".panorama_A", {
   backgroundImage: "linear-gradient(to left, #ff7f50, #ffd700)",
   duration: 12,
@@ -107,7 +133,8 @@ let ciel = gsap.to(".panorama_A", {
 });
 pause(ciel, 25);
 
-// creation timelines
+// creation timelines....................................................
+
 const tmCar = gsap.timeline();
 const tmPlane = gsap.timeline();
 const tmMoon = gsap.timeline();
@@ -115,40 +142,65 @@ const tmSun = gsap.timeline();
 const tmheadlights = gsap.timeline();
 const tmTractor = gsap.timeline();
 const tmMoto = gsap.timeline();
+const tmheadlightsTractor = gsap.timeline();
+const tmballLightTractor = gsap.timeline();
 
-// animation car
+// animation car.........................................
+
 let car = tmCar.to(".car", {
   x: 800,
-  duration: 19,
+  duration: 28,
   // repeat: -1,
   ease: "",
 });
-tmCar.addPause(7.2);
+tmCar.addPause(6.7);
 setTimeout(function () {
   tmCar.play();
-}, 19000);
+}, 12000);
 pause(car, 30);
 
-// animation des phares
-const headlightsDuration = 17;
-function turnOnHeadlights() {
-  gsap.set(".headlights", { opacity: 1 });
-}
+// animation des phares.................................................
+
+// const headlightsDuration = 17;
+// function turnOnHeadlights() {
+//   gsap.set(".headlights", { opacity: 1 });
+// }
 
 let headLights = tmheadlights.to(".headlights", {
   x: 800,
-  duration: 19,
+  duration: 28,
   // repeat: -1,
   ease: "",
 });
-tmheadlights.addPause(7.2, function () {
+tmheadlights.addPause(6.7, function () {
   gsap.set(".headlights", { opacity: 0 });
 });
+
 setTimeout(function () {
   tmheadlights.play();
+   gsap.set(".headlights", { x: 900 });
   gsap.set(".headlights", { opacity: 1 });
-}, 19000);
+ 
+}, 23000);
+
 pause(headLights, 30);
+
+
+
+//animation headligths_tractor.....................................................
+
+let headLightsTractor = tmheadlightsTractor.to(".headlights_tractor", {
+  x: -900,
+  duration: 19,
+  // repeat: -1,
+  ease: "none",
+});
+tmheadlightsTractor.addPause(5.7, function () {
+  gsap.set(".headlights_tractor", { opacity: 0 });
+});
+
+
+//animation tractor................
 
 let tractor = tmTractor.to(".tractor", {
   x: -900,
@@ -157,7 +209,21 @@ let tractor = tmTractor.to(".tractor", {
   ease: "none",
 });
 
-// animation avion
+
+//animation ballLight_tractor.................
+
+let ballLight_tractor = tmballLightTractor.to(".ballLight_tractor", {
+  x: -900,
+  duration: 19,
+  // repeat: -1,
+  ease: "none",
+});
+tmballLightTractor.addPause(5.7, function () {
+  gsap.set(".ballLight_tractor", { opacity: 0 });
+});
+
+// animation avion............................................................
+
 let plane = tmPlane
   .add(
     gsap.to(".plane", {
@@ -188,17 +254,19 @@ let plane = tmPlane
   );
 pause(plane, 30);
 
-// animation sun
+// animation sun..............................................
+
 // tmSun.add(
 let sun = gsap.to(".sunCircle", {
   rotation: 180,
-  duration: 36,
-  delay: 2.8,
+  duration: 44,
+  delay: 1.1,
   repeat: -1,
 });
 pause(sun, 30);
 
-//animation moon
+//animation moon....................................................
+
 let moon = tmMoon.to(".moonCircle", {
   rotation: 180,
   duration: 24,
