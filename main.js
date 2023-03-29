@@ -158,7 +158,7 @@ setTimeout(function () {
   tmCar.play();
 }, 20000);
 
-pause(car, 33);
+pause(car, 34);
 
 // animation des phares.................................................
 
@@ -179,17 +179,17 @@ setTimeout(function () {
   gsap.set(".headlights", { ease: "power4" });
 }, 20000);
 
-pause(headLights, 30);
+pause(headLights, 34);
 
 //animation headligths_tractor.....................................................
 
 let headLightsTractor = tmheadlightsTractor.to(".headlights_tractor", {
   x: -900,
-  duration: 19,
+  duration: 21,
   // repeat: -1,
   ease: "none",
 });
-tmheadlightsTractor.addPause(6.7, function () {
+tmheadlightsTractor.addPause(8.7, function () {
   gsap.set(".headlights_tractor", { opacity: 0 });
 });
 
@@ -197,7 +197,7 @@ tmheadlightsTractor.addPause(6.7, function () {
 
 let tractor = tmTractor.to(".tractor", {
   x: -900,
-  duration: 19,
+  duration: 21,
   // repeat: -1,
   ease: "none",
 });
@@ -206,11 +206,11 @@ let tractor = tmTractor.to(".tractor", {
 
 let ballLight_tractor = tmballLightTractor.to(".ballLight_tractor", {
   x: -900,
-  duration: 19,
+  duration: 21,
   // repeat: -1,
   ease: "none",
 });
-tmballLightTractor.addPause(6.7, function () {
+tmballLightTractor.addPause(8.7, function () {
   gsap.set(".ballLight_tractor", { opacity: 0 });
 });
 
@@ -238,13 +238,13 @@ let plane = tmPlane
     gsap.to(".plane", {
       x: 800,
       y: -500,
-      duration: 17,
+      duration: 22,
       transform: "rotate(-30deg)",
       ease: "power3",
       scale: 0.2,
     })
   );
-pause(plane, 30);
+pause(plane, 33);
 
 // animation sun..............................................
 
@@ -255,7 +255,7 @@ let sun = gsap.to(".sunCircle", {
   delay: 1.1,
   repeat: -1,
 });
-pause(sun, 30);
+pause(sun, 33);
 
 //animation moon....................................................
 
